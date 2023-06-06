@@ -2,3 +2,9 @@
 	path = ext/wt-4.10.0
 	url = git@github.com:emweb/wt.git
 	branch = 4.10.0
+	igmore = dirty
+[submodule "ext/boost_1_82_0"]
+	path = ext/boost_1_82_0
+	url = git@github.com:boostorg/boost.git
+	branch = boost-1.82.0
+	igmore = dirty
