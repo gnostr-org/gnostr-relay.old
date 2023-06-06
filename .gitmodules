@@ -1,0 +1,4 @@
+[submodule "ext/wt-4.10.0"]
+	path = ext/wt-4.10.0
+	url = git@github.com:emweb/wt.git
+	branch = 4.10.0
