@@ -153,6 +153,16 @@ extra:## 	additional
 submodules:###	recursively initialize git submodules
 	type -P git && git submodule update --init --recursive
 
+.PHONY:ext/openssl
+ext/openssl:
+	cd $(PWD)/$@-3.0.5 && \
+		./Configure \
+		--prefix=/usr/local/ssl \
+		--openssldir=/usr/local/ssl \
+		'-Wl,-rpath,$(LIBRPATH)' && $(MAKE) all
+.PHONY:openssl
+openssl:ext/openssl## 	openssl
+
 ## include Makefile if exists
 -include Makefile
 -include act.mk
