@@ -41,3 +41,18 @@ src/nostril/deps/
 src/nostril/nostril
 vostro
 vostro.log.txt
+
+#gnostr-relay artifacts
+Makefile.in
+configdata.pm
+database.json
+event.json
+http_client.log.txt
+http_relay.log.txt
+include/
+list_01.txt
+list_02.txt
+nostro_event.json
+request.json
+tests
+web/wt_config.xml
