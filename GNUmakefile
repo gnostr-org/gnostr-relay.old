@@ -149,19 +149,26 @@ report:###	report
 	@echo 'GIT_REPO_PATH=${GIT_REPO_PATH}'
 
 extra:## 	additional
+##extra
 	@echo "example: add additional make commands"
 submodules:###	recursively initialize git submodules
+##submodules
 	type -P git && git submodule update --init --recursive
 
+cmake:## 	cmake .
+##cmake
+	cmake . && make all
 .PHONY:ext/openssl
 ext/openssl:
+##ext/openssl
 	cd $(PWD)/$@-3.0.5 && \
 		./Configure \
 		--prefix=/usr/local/ssl \
 		--openssldir=/usr/local/ssl \
 		'-Wl,-rpath,$(LIBRPATH)' && $(MAKE) all
 .PHONY:openssl
-openssl:ext/openssl## 	openssl
+openssl:ext/openssl cmake## 	openssl
+##openssl
 
 ## include Makefile if exists
 -include Makefile
