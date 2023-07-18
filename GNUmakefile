@@ -24,6 +24,8 @@ TRIPLET                                 :=aarch64-linux-gnu
 export TRIPLET
 endif
 
+CMAKE_SOURCE_DIR                        :=$(shell `pwd`)
+
 ifeq ($(reuse),true)
 REUSE                                   :=-r
 else
@@ -137,6 +139,8 @@ report:###	report
 	@echo ''
 	@echo 'PROJECT_NAME=${PROJECT_NAME}'
 	@echo ''
+	@echo 'CMAKE_SOURCE_DIR=${CMAKE_SOURCE_SIR}'
+	@echo ''
 	@echo 'GIT_USER_NAME=${GIT_USER_NAME}'
 	@echo 'GIT_USER_EMAIL=${GIT_USER_EMAIL}'
 	@echo 'GIT_SERVER=${GIT_SERVER}'
@@ -153,6 +157,14 @@ extra:## 	additional
 submodules:###	recursively initialize git submodules
 	type -P git && git submodule update --init --recursive
 
+.ONESHELL:
+openssl:
+	cd ext/openssl-3.0.5 && \
+		./Configure \
+		--prefix=/usr/local/ssl \
+		--openssldir=/usr/local/ssl \
+		'-Wl,-rpath,$(LIBRPATH)' && \
+		make
 ## include Makefile if exists
 -include Makefile
 -include act.mk
