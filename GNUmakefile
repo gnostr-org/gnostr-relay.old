@@ -148,6 +148,16 @@ report:###	report
 	@echo 'GIT_REPO_NAME=${GIT_REPO_NAME}'
 	@echo 'GIT_REPO_PATH=${GIT_REPO_PATH}'
 
+.PHONY:build.build.sh
+build-boost-sh:### 	build.cmake.sh
+	./build.boost.sh
+.PHONY:build.cmake.sh
+build-cmake-sh:### 	build.cmake.sh
+	./build.cmake.sh
+.PHONY:build.wt.sh
+build-wt-sh:### 	build.cmake.sh
+	./build.wt.sh
+
 extra:## 	additional
 ##extra
 	@echo "example: add additional make commands"
