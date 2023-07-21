@@ -1,5 +1,5 @@
 #!/bin/bash
-
+PORT=8080
 #echo ${!#}
 if [[ $1 == "-p" ]];then
 PORT=${!#}
