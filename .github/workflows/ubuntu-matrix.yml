@@ -17,7 +17,9 @@ on:
       - 'master'
       - 'main'
 
-  env: CC=g++
+  env: |
+    CC=clang
+    CXX=clang
 
   workflow_dispatch:
 
@@ -53,14 +55,16 @@ jobs:
           printenv && sudo apt-get update && \
           sudo apt-get install -y python3 \
           make autoconf automake \
-          libtool gettext util-linux bash cmake \
-          g++-9 g++-10
+          libtool gettext util-linux bash cmake clang
 
-      - name: make submodules cmake all
+      - name: cmake -S . -B build && cd build && make
         run: |
           touch ~/GITHUB_TOKEN.txt
-          rm CMakeCache.txt
-          cmake .; make; make all
+          touch CMakeCache.txt
+          mkdir -p build
+          rm CMakeCache.txt || true
+          rm build/CMakeCache.txt || true
+          CMAKE_CXX_COMPILER=clang cmake -S . -B build && cd build && make
 
       - name: Save build/ext
         id: cache-ext-save
