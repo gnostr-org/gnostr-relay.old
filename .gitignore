@@ -56,3 +56,7 @@ nostro_event.json
 request.json
 tests
 web/wt_config.xml
+
+#act tool detects .env file
+#can be used to select CMAKE_COMPILER
+.env
