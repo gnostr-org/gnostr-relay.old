@@ -168,10 +168,11 @@ extra:## 	additional
 submodules:###	recursively initialize git submodules
 ##submodules
 	git submodule update --init --recursive || echo "install git..."
-
-cmake:submodules## 	cmake .
+install:cmake### 	install
+	$(MAKE) install
+cmake:submodules### 	cmake .
 ##cmake
-	cmake -S . -B build && cd build && make all
+	cmake -S . && make all
 .PHONY:ext/openssl
 ext/openssl:
 ##ext/openssl
