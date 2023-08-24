@@ -6,6 +6,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/resources ${CMAKE_MODULE_PATH}
 include(resources/TargetArch.cmake)
 include(resources/GitUtils.cmake)
 
+message(STATUS CMAKE_TARGET_ARCHITECTURES="${CMAKE_TARGET_ARCHITECTURES}")
 
 # Set target architectures
 target_architecture(CMAKE_TARGET_ARCHITECTURES)
@@ -18,16 +19,24 @@ else()
     set(CMAKE_TARGET_ARCHITECTURE_CODE "${CMAKE_TARGET_ARCHITECTURES}")
     set(ARCH "${CMAKE_TARGET_ARCHITECTURES}")
 endif()
-message(STATUS "Target architectures: ${CMAKE_TARGET_ARCHITECTURES}")
+message(STATUS CMAKE_TARGET_ARCHITECTURES="${CMAKE_TARGET_ARCHITECTURES}")
 
 if (APPLE)
+if("${ARCH}" STREQUAL "unknown")
+   message(STATUS ARCH=unknown="${ARCH}")
+   message(STATUS "We are assuming APPLE AND unknown is Arm64")
+   set(ARCH "Arm64")
+   message(STATUS ARCH="${ARCH}")
+endif()
 if("${ARCH}" STREQUAL "x86_64")
-    message(STATUS ARCH="${ARCH}")
+   message(STATUS ARCH="${ARCH}")
 endif()
-if(NOT "${ARCH}" STREQUAL "x86_64")
-    message(STATUS NOT ARCH="${ARCH}")
+# if(NOT "${ARCH}" STREQUAL "x86_64")
+#     message(STATUS NOT ARCH="${ARCH}")
+# endif()
 endif()
-endif()
+
+
 
 if (MSVC)
  cmake_minimum_required(VERSION 3.26)
