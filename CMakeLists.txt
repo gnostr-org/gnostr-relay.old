@@ -2,6 +2,33 @@
 # Copyright (c) 2023, Space Research Software LLC, Pedro Vicente. All rights reserved.
 # See file LICENSE for full license details.
 
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/resources ${CMAKE_MODULE_PATH})
+include(resources/TargetArch.cmake)
+include(resources/GitUtils.cmake)
+
+
+# Set target architectures
+target_architecture(CMAKE_TARGET_ARCHITECTURES)
+list(LENGTH CMAKE_TARGET_ARCHITECTURES cmake_target_arch_len)
+if(NOT "${cmake_target_arch_len}" STREQUAL "1")
+    set(CMAKE_TARGET_ARCHITECTURE_UNIVERSAL TRUE)
+    set(CMAKE_TARGET_ARCHITECTURE_CODE "universal")
+else()
+    set(CMAKE_TARGET_ARCHITECTURE_UNIVERSAL FALSE)
+    set(CMAKE_TARGET_ARCHITECTURE_CODE "${CMAKE_TARGET_ARCHITECTURES}")
+    set(ARCH "${CMAKE_TARGET_ARCHITECTURES}")
+endif()
+message(STATUS "Target architectures: ${CMAKE_TARGET_ARCHITECTURES}")
+
+if (APPLE)
+if("${ARCH}" STREQUAL "x86_64")
+    message(STATUS ARCH="${ARCH}")
+endif()
+if(NOT "${ARCH}" STREQUAL "x86_64")
+    message(STATUS NOT ARCH="${ARCH}")
+endif()
+endif()
+
 if (MSVC)
  cmake_minimum_required(VERSION 3.26)
 else()
