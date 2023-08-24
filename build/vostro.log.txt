@@ -1,0 +1,4 @@
+2023-08-24,08:49:25 Listening on port: 8080
+2023-08-24,08:49:26 Opened connection: 0x7f9472408490
+2023-08-24,08:49:26 Server: Message received: "["EVENT",{"content":"","created_at":1692881366,"id":"6300b315ec7300d9493637d4617eead763ddb1aa6f8c67ce01ec0e458a7b2958","kind":1,"pubkey":"5237e3daec84b190b53a2fc44aeed9c19f68552f7f49cd79c2d56f8787ad8790","sig":"ca8937510edfce954ae69f4d21c391ef73e49a9ae0fd725a4a91415296e5fdc352aee4ffd9a74b0422f2e1c98219bcf0510c3f41d231a3d7af19b49d8783ee7e","tags":[]}]" from 0x7f9472408490
+2023-08-24,08:49:26 Closed connection: 0x7f9472408490 code 1000

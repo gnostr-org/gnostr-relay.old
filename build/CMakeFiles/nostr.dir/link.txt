@@ -1,0 +1,2 @@
+/Applications/Xcode@12.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libnostr.a CMakeFiles/nostr.dir/src/log.cc.o CMakeFiles/nostr.dir/src/nostr.cc.o CMakeFiles/nostr.dir/src/relay.cc.o CMakeFiles/nostr.dir/src/uuid.cc.o CMakeFiles/nostr.dir/src/database.cc.o
+/Applications/Xcode@12.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libnostr.a

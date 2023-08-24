@@ -1,0 +1,2 @@
+/Applications/Xcode@12.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libnostri.a CMakeFiles/nostri.dir/sha256.c.o CMakeFiles/nostri.dir/base64.c.o CMakeFiles/nostri.dir/aes.c.o CMakeFiles/nostri.dir/nostri.c.o
+/Applications/Xcode@12.4.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libnostri.a
