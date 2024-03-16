@@ -27,7 +27,7 @@ endif()
 
 if(MSVC)
   message(STATUS "Windows static build: " ${STATIC_MSVC})
-endif()  
+endif()
 message(STATUS "Source directory is " ${CMAKE_SOURCE_DIR})
 message(STATUS "Build directory is " ${CMAKE_CURRENT_BINARY_DIR})
 
@@ -166,7 +166,7 @@ if(USE_OPENSSL)
   if (MSVC)
     if(DEFINED OPENSSL_ROOT_DIR)
        message(STATUS "OPENSSL_ROOT_DIR: ${OPENSSL_ROOT_DIR}")
-    else() 
+    else()
       set(OPENSSL_ROOT_DIR "${CMAKE_SOURCE_DIR}/ext/openssl-3.0.5")
       message(STATUS "Setting OPENSSL_ROOT_DIR to: ${OPENSSL_ROOT_DIR}")
     endif()
@@ -225,8 +225,8 @@ endif()
 #//////////////////////////
 
 if (NOT BUILD_MOBILE)
-  add_executable(examples examples/examples.cc)
-  target_link_libraries (examples ${lib_dep})
+  add_executable(example examples/examples.cc)
+  target_link_libraries (example ${lib_dep})
 endif()
 
 #//////////////////////////
